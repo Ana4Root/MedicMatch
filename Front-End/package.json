@@ -12,6 +12,7 @@
     "axios": "^1.5.1",
     "vue": "^3.3.4",
     "vue-awesome-swiper": "^5.0.1",
+    "vue-multiselect": "^3.0.0-beta.2",
     "vue-router": "^4.2.5",
     "vue3-carousel": "^0.3.1"
   },

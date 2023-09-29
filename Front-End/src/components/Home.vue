@@ -48,7 +48,7 @@
                         CADASTRE-SE NO NOSSO GUIA
                     </div>
                     <div class="mt-10 md:mt-0 md:col-span-2">
-                        <form action="#" method="POST">
+                        <form @submit.prevent="submitForm">
                             <div class="overflow-hidden shadow sm:rounded-md">
                                 <div class="px-2 py-8 bg-white sm:p-6">
                                     <div class="grid grid-cols-6 gap-6">
@@ -56,7 +56,7 @@
                                             <label for="first-name" class="block text-sm font-medium text-gray-700">Nome
                                                 Completo</label>
                                             <input type="text" name="first-name" placeholder="João da Silva" id="first-name"
-                                                autocomplete="given-name"
+                                                autocomplete="given-name" v-model="pesnome"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
@@ -64,21 +64,21 @@
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">Data de
                                                 Nascimento</label>
                                             <input type="text" name="last-name" placeholder="09/02/2008" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pesdatanascimento"
                                                 class="block w-full mt-1 text-gray-300 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">Documento
                                                 (RG)</label>
                                             <input type="text" name="last-name" placeholder="11.222.333-4" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pesdorg"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Documento (CPF)</label>
                                             <input type="text" name="last-name" placeholder="111.222.333-44" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pesdocpf"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
@@ -86,7 +86,7 @@
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Telefone 1 </label>
                                             <input type="text" name="last-name" placeholder="(00) 12345-6789" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pescontatotel1"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
@@ -94,7 +94,7 @@
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Telefone 2</label>
                                             <input type="text" name="last-name" placeholder="(00) 12345-6789" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pescontatotel2"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
@@ -102,7 +102,7 @@
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Email 1</label>
                                             <input type="text" name="last-name" placeholder="joaodasilva@email.com.br"
-                                                id="last-name" autocomplete="family-name"
+                                                id="last-name" autocomplete="family-name" v-model="pescontatoemail1"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
@@ -110,7 +110,7 @@
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Email 2</label>
                                             <input type="text" name="last-name" placeholder="joaodasilva@email.com.br"
-                                                id="last-name" autocomplete="family-name"
+                                                id="last-name" autocomplete="family-name" v-model="pescontatoemail2"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
@@ -118,33 +118,32 @@
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Endereço</label>
                                             <input type="text" name="last-name" placeholder="Rua perdida" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pesendrua"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Número</label>
                                             <input type="text" name="last-name" placeholder="0123" id="last-name"
-                                                autocomplete="family-name"
+                                                autocomplete="family-name" v-model="pesendnumero"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Bairro</label>
                                             <input type="text" name="last-name" placeholder="Bairro dos pardais"
-                                                id="last-name" autocomplete="family-name"
+                                                id="last-name" autocomplete="family-name" v-model="pesendbairro"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
 
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="country" class="block text-sm font-medium text-gray-700">
-                                                Estado
-                                            </label>
-                                            <select id="country" name="country" autocomplete="country"
-                                                v-model="selectedState" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300
+                                            <label for="state"
+                                                class="block text-sm font-medium text-gray-700">Estado</label>
+                                            <select id="state" name="state" v-model="selectedState" @change="loadCities"
+                                                class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300
                                                 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500
                                                 focus:border-indigo-500 sm:text-sm">
-                                                <option disabled value="">Selecione um estado</option>
+                                                <option value="">Selecione um estado</option>
                                                 <option v-for="state in states" :key="state.estcodibge"
                                                     :value="state.estcodibge">
                                                     {{ state.estnome }}
@@ -152,37 +151,70 @@
                                             </select>
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="country" class="block text-sm font-medium text-gray-700">
-                                                Cidade</label>
-                                            <select id="country" name="country" autocomplete="country"
+                                            <label for="city" class="block text-sm font-medium text-gray-700">Cidade</label>
+                                            <select id="city" name="city" v-model="selectedCity" :disabled="!selectedState"
                                                 class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                <option>Head office</option>
-                                                <option>Canada</option>
-                                                <option>Mexico</option>
+                                                <option value="">Selecione uma cidade</option>
+                                                <option v-for="city in cities" :key="city.cidcodibge"
+                                                    :value="city.cidcodibge">
+                                                    {{ city.cidnome }}
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="country" class="block text-sm font-medium text-gray-700">
                                                 Gênero</label>
-                                            <select id="country" name="country" autocomplete="country"
+                                            <select id="country" name="country" autocomplete="country" v-model="pessexo"
                                                 class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                 <option>Homem</option>
                                                 <option>Mulher</option>
                                                 <option>Outros</option>
                                             </select>
                                         </div>
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="specialties"
+                                                class="block text-sm font-medium text-gray-700">Especialidades</label>
+                                            <div @click="showSpecialties = !showSpecialties"
+                                                class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                <span class="inline-block">{{ selectedSpecialties.length > 0 ?
+                                                    selectedSpecialties.map(s => s.espnome).join(', ') : 'Selecione uma ou mais especialidades' }}</span>
+                                            </div>
+                                            <div v-show="showSpecialties"
+                                                class="relative z-20 mt-1 flex w-64 flex-col px-4 py-8 whitespace-nowrap border border-gray-600 rounded bg-white">
+                                                <div v-for="specialty in specialties" :key="specialty.espcodigo">
+                                                    <input type="checkbox" :name="'type[]'" :value="specialty"
+                                                        v-model="selectedSpecialties" class="inline-block mr-2">
+                                                    <label>{{ specialty.espnome }}</label>
+                                                </div>
+                                            </div>
 
+                                            <label for="services"
+                                                class="block text-sm font-medium text-gray-700">Serviços</label>
+                                            <div @click="showServices = !showServices"
+                                                class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                <span class="inline-block">{{ selectedServices.length > 0 ?
+                                                    selectedServices.map(s => s.servnome).join(', ') : 'Selecione um ou mais serviços' }}</span>
+                                            </div>
+                                            <div v-show="showServices"
+                                                class="relative z-20 mt-1 flex w-64 flex-col px-4 py-8 whitespace-nowrap border border-gray-600 rounded bg-white">
+                                                <div v-for="service in services" :key="service.servcodigo">
+                                                    <input type="checkbox" :name="'type[]'" :value="service.servnome"
+                                                        v-model="selectedServices" class="inline-block mr-2">
+                                                    <label>{{ service.servnome }}</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Descrição do Profissional</label>
-                                            <input type="text" name="last-name" placeholder="Eu faço..." id="last-name"
+                                            <input type="text" name="last-name" placeholder="Eu faço..." id="last-name" v-model="pesprodescricao"
                                                 autocomplete="family-name"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="last-name" class="block text-sm font-medium text-gray-700">
                                                 Descrição do Serviço</label>
-                                            <input type="text" name="last-name" placeholder="Meus serviços inclui..."
+                                            <input type="text" name="last-name" placeholder="Meus serviços inclui..." v-model="pesprodescricaoservicos "
                                                 id="last-name" autocomplete="family-name"
                                                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         </div>
@@ -216,12 +248,40 @@ export default defineComponent({
         return {
             states: [],
             selectedState: '',
+            cities: [],
+            selectedCity: '',
+            specialties: [],
+            selectedSpecialties: [],
+            services: [],
+            selectedServices: [],
+            showSpecialties: false,
+            showServices: false,
+            pesnome: '',
+            pessexo: '',
+            pesdatanascimento: '',
+            pesdocrg: '',
+            pesdoccpf: '',
+            pescontatotel1: '',
+            pescontatotel2: '',
+            pescontatoemail1: '',
+            pescontatoemail2: '',
+            pesendrua: '',
+            pesendnumero: '',
+            pesendbairro: '',
+            pesendcidcod: '',
+            pesendestcod: '',
+            pessituacao: '0',
+            pesprodescricao: '',
+            pesprodescricaoservicos: '',
+            prosituacao: '',
+            idservico: '',
+            prosituacao: '1',
         };
     },
     components: {
         Carousel,
         Slide,
-        Pagination,
+        Pagination
     },
     mounted() {
         axios
@@ -233,6 +293,82 @@ export default defineComponent({
                 console.error('Erro ao buscar estados:', error);
             });
     },
+    methods: {
+        loadCities() {
+            if (this.selectedState) {
+                axios
+                    .get(`Cidade/${this.selectedState}`)
+                    .then((response) => {
+                        this.cities = response.data;
+                        this.$forceUpdate();
+                    })
+                    .catch((error) => {
+                        console.error('Erro ao buscar cidades:', error);
+                    });
+            } else {
+                this.cities = [];
+            }
+        },
+        submitForm() {
+        axios.post('Profissional/create', {
+            pesnome: this.pesnome,
+            pessexo: this.pessexo,
+            pesendestcod: this.selectedState,
+            pesendcidcod: this.selectedCity,
+            selectedSpecialties: this.selectedSpecialties.join(','),
+            selectedServices: this.selectedServices.join(','),
+            pesdatanascimento: this.pesdatanascimento,
+            pesdocrg: this.pesdocrg,
+            pesdoccpf: this.pesdoccpf,
+            pescontatotel1: this.pescontatotel1,
+            pescontatotel2: this.pescontatotel2,
+            pescontatoemail1: this.pescontatoemail1,
+            pescontatoemail2: this.pescontatoemail2,
+            pesendrua: this.pesendrua,
+            pesendnumero: this.pesendnumero,
+            pesendbairro: this.pesendbairro,
+            pessituacao: this.pessituacao,
+            pesprodescricao: this.pesprodescricao,
+            pesprodescricaoservicos: this.pesprodescricao,
+            prosituacao: this.prosituacao,
+        })
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        },
+    },
+    created() {
+        axios
+            .get('Especialidade')
+            .then((response) => {
+                this.specialties = response.data;
+            })
+            .catch((error) => {
+                console.error('Erro ao buscar especialidades:', error);
+            });
+    },
+    watch: {
+    selectedSpecialties(newVal, oldVal) {
+        if (newVal !== oldVal) {
+            this.services = [];
+            let ids = newVal.map(specialty => specialty.espcodigo).join(',');  
+            if (ids) {
+                axios
+                    .get(`Servico/${ids}`)
+                    .then((response) => {
+                        this.services = response.data;
+                    })
+                    .catch((error) => {
+                        console.error('Erro ao buscar serviços:', error);
+                    });
+            }
+        }
+    }
+}
+
 })
 </script>
 
@@ -247,5 +383,4 @@ export default defineComponent({
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
-}
-</style>
+}</style>
